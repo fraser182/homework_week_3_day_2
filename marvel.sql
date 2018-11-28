@@ -67,6 +67,8 @@ INSERT INTO movies (title, year, show_time) VALUES ('Guardians of the Galaxy 2',
 
 -- 4.  Return ONLY your name from the 'people' table.
 -- SELECT name FROM people WHERE name = 'Fraser Ross';
+-- SELECT name FROM people WHERE id = ;
+
 
 -- 5.  The cinema is showing 'Batman Begins', but Batman is DC, not Marvel! Delete the entry from the 'movies' table.
 -- DELETE FROM movies WHERE title = 'Batman Begins';
@@ -95,4 +97,20 @@ INSERT INTO movies (title, year, show_time) VALUES ('Guardians of the Galaxy 2',
 -- 1.  Research how to delete multiple entries from your table in a single command.
 DELETE FROM movies WHERE id IN (1, 2, 3, 4, 5, 6);
 SELECT * FROM movies;
---
+
+DELETE FROM movies WHERE year = 2008;
+
+DELETE FROM movies WHERE id BETWEEN 4 AND 7;
+-- L
+DELETE FROM movies WHERE title LIKE'%' || 'Guardians' || '%';
+
+-- As long as it starts with Guardians - Delete (% represents rest of string)
+DELETE FROM movies WHERE title %LIKE 'Guardians%';
+
+-- As long as it ends with Guardians - Delete (% represents rest of string)
+DELETE FROM movies WHERE title %LIKE '%Guardians';
+
+-- In the middle somewhere (% represents rest of string)
+DELETE FROM movies WHERE title %LIKE '%Guardians%';
+
+DELETE FROM movies WHERE title = 'Doctor Strange' OR year = 2015;
